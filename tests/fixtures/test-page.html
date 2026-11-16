@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeadClick Test Fixture</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .interactive { cursor: pointer; padding: 8px 12px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <h1>DeadClick Test Page</h1>
+
+  <!-- 1. Working Button (changes DOM) -->
+  <button id="working-btn" onclick="document.getElementById('counter').innerText = 'Clicked!'">
+    Working Button
+  </button>
+  <span id="counter">Initial</span>
+
+  <!-- 2. Working Link -->
+  <a id="working-link" href="#target-heading">Go to target</a>
+
+  <!-- 3. Dead Click Button (does nothing) -->
+  <button id="dead-btn">Dead Button</button>
+
+  <!-- 4. Empty Link (href="#" and does nothing) -->
+  <a id="empty-link" href="#">Empty Link</a>
+
+  <!-- 5. Broken Link (404) -->
+  <a id="broken-link" href="/broken-404">Broken Link</a>
+
+  <!-- 6. No Interaction Handler (role="button" but nothing attached) -->
+  <div id="no-handler-btn" role="button" tabindex="0" class="interactive">
+    Pseudo Button
+  </div>
+
+  <!-- 7. Form Failure (submit throws error) -->
+  <form id="faulty-form" onsubmit="event.preventDefault(); throw new Error('Submission crash');">
+    <button id="broken-submit-btn" type="submit">Submit Crash</button>
+  </form>
+
+  <!-- 8. Destructive Action (safe-mode check) -->
+  <button id="delete-account-btn">Delete Account</button>
+
+  <!-- 9. Disabled button (should be ignored) -->
+  <button id="disabled-btn" disabled>Disabled Button</button>
+
+  <h2 id="target-heading">Target Section</h2>
+</body>
+</html>
+

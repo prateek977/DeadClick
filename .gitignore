@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+report.html
+report.json
+deadclick-report.html
+example-report.html
+*.tgz
+.DS_Store
+
