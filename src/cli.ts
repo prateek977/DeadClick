@@ -12,7 +12,7 @@ const program = new Command();
 program
   .name('deadclick')
   .description('Automated UI interaction testing and dead click detection')
-  .version('0.1.0');
+  .version('0.1.1');
 
 program
   .command('scan')

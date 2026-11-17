@@ -1,6 +1,6 @@
 {
   "name": "deadclick",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Automated UI interaction testing and dead click detection for websites",
   "type": "module",
   "main": "./dist/index.js",
@@ -20,7 +20,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && chmod +x dist/cli.js",
     "dev": "tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",

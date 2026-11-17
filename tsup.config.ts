@@ -1,4 +1,6 @@
 import { defineConfig } from "tsup";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 export default defineConfig({
   entry: {
@@ -16,5 +18,13 @@ export default defineConfig({
       return { js: "#!/usr/bin/env node" };
     }
     return {};
+  },
+  onSuccess: async () => {
+    try {
+      const cliPath = path.resolve("dist/cli.js");
+      await fs.chmod(cliPath, 0o755);
+    } catch {
+      // Ignore if file doesn't exist yet
+    }
   }
 });

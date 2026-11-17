@@ -23,7 +23,7 @@ describe('CLI Options and Argument Handling', () => {
 
   it('displays version number with --version', async () => {
     const { stdout } = await execAsync('node ./dist/cli.js --version');
-    expect(stdout.trim()).toBe('0.1.0');
+    expect(stdout.trim()).toBe('0.1.1');
   });
 });
 
